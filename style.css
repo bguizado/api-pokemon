@@ -1,31 +1,75 @@
 body {
-    display: flex;
-    justify-content: center;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
 .pokemons-app {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 .pokemons-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .pokemons-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 .pokemons-item {
-    background-color: #dea;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: .5rem;
-    border-radius: 6px;
-    border: 3px solid rgb(143, 168, 68);
-    min-width: 12rem;
-    text-transform: capitalize;
+  background-color: #dea;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 3px solid rgb(143, 168, 68);
+  min-width: 12rem;
+  text-transform: capitalize;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-container {
+  margin: auto;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90%;
+  background-color: #dea;
+  border-radius: 6px;
+  padding: 3em 2.5em;
+  display: grid;
+  gap: 1em;
+  place-items: center;
+  grid-auto-columns: 100%;
+}
+
+.modal_title {
+  font-size: 2.5rem;
+}
+
+.modal_img {
+  width: 90%;
+  max-width: 300px;
+}
+
+.modal-btn {
+  padding: 1em 3em;
+}
+
+.modal-show {
+  opacity: 1;
+  pointer-events: unset;
 }

@@ -10,7 +10,7 @@ const fetchPokemon = async (page) => {
     const id = pokemon.url.split("/").at(6);
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
     return {
-      ... pokemon,
+      ...pokemon,
       id,
       image,
     };
@@ -53,6 +53,30 @@ const renderPokemons = (pokemons) => {
       <h2> #${pokemon.id} ${pokemon.name} </h2>
     </article>    
     `;
+  });
+
+  const showModal = (pokemon) => {
+    const modal = document.querySelector(".modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalTitle = document.getElementById("modal-title");
+    const modalCloseBtn = document.getElementById("modal-close");
+
+    modalImg.src = pokemon.image;
+    modalTitle.textContent = `#${pokemon.id} ${pokemon.name}`;
+
+    modal.classList.add("modal-show");
+    modalCloseBtn.addEventListener("click", () => {
+      modal.classList.remove("modal-show");
+    });
+  };
+
+  pokemonsList.addEventListener("click", (event) => {
+    const clickedPokemon = event.target.closest(".pokemons-item");
+    if (clickedPokemon) {
+      const index = Array.from(pokemonsList.children).indexOf(clickedPokemon);
+      const selectedPokemon = pokemons[index];
+      showModal(selectedPokemon);
+    }
   });
 
   pokemonsList.innerHTML = elements;
